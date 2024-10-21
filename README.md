@@ -5,6 +5,34 @@ Recommended to use pnpm and a conda environment for piper-tts
 # install
 go to frontend and do pnpm install
 
+## wsl installation
+in wsl
+
+install python
+install git
+
+create environment 
+	python3 -m venv aloud
+	source aloud/bin/activate
+
+
+install nvm -> node package manager
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+load nvm
+	export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+install node
+	nvm install node
+install pnpm
+	 curl -fsSL https://get.pnpm.io/install.sh | sh -
+install vite
+	pnpm add -D vite
+
+
+
+
+
+
 # Develop
 To run Say-it-Aloud!, you need an Eel server, and a vite server. Use a new console to run each:
 ## activate environment
