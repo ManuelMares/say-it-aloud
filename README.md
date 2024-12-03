@@ -10,10 +10,13 @@ in wsl
 
 install python
 install git
+install sudo apt-get install wslu
 
-create environment 
-	python3 -m venv aloud
-	source aloud/bin/activate
+
+create environment with mini conda
+install piper -> pip install piper-tts
+aloud
+if conda is not being activated, do 'conda init zsh' first
 
 
 install nvm -> node package manager
@@ -54,3 +57,30 @@ When updating the backend (Python scripts), it is necessary to restart the Eel s
 When updating the interface, the changes will show up inmediately, unless the modification
 affects the way a backend is retrieved/displayed. In such case the pnpm might close on its own.
 A simple restart will be sufficient to continue.
+
+
+# Ports
+frontend -> 5173
+backend -> 5169
+both in development
+
+# changing ports in development
+to change the backend port, 
+    change the code in init.py for development (eel_port variable)
+    Change eel port in eel.set_host in app.tsx
+    Change eel port in index.html in frontend
+To change frontend port
+    adjust vite new port
+    change page = {'port': 5173} in init.py
+
+
+# docker build images
+docker build -t aloud-backend .
+    cd frontend
+docker build -t aloud-frontend .
+
+# Run docker
+docker run -it -p 5169:5169 --name aloud_backend aloud-backend
+in a second terminal
+    cd frontend
+    docker run -it -p 5173:5173 --name aloud-frontend aloud-frontend
